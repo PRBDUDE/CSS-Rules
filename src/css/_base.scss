@@ -1,0 +1,26 @@
+@use "color";
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: sans-serif;
+    font-weight: 400;
+    font-size: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    background-color: $prb-page-background-color;
+    padding-top: 5rem;
+}
+
+@media screen and (max-width: 1090px) {
+    body {
+        padding-top: 1rem;
+    }
+}
+

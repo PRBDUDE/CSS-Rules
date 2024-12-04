@@ -1,0 +1,20 @@
+$card-border-width: 6px;
+
+@mixin card-style($outline-color,
+    $text-color, $title-background-color, $title-text-color) {
+    outline: $card-border-width solid $outline-color;
+    outline-offset: -$card-border-width;
+    background-color: lighten($outline-color, 40%);
+    color: $text-color;
+
+    .title {
+        background-color: $title-background-color;
+        color: $title-text-color;
+    }
+}
+
+@mixin card-title-before($before-content) {
+    .title:before {
+        content: $before-content;
+    }
+}

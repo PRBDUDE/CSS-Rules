@@ -1,0 +1,83 @@
+@import "color";
+@import "base";
+@import "mixins";
+
+.wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+
+    margin: 1rem auto;
+    position: relative;
+    z-index: 1;
+
+    .card {
+        max-width: 300px;
+        background: $prb-color-light-gray;
+        color: $prb-color-black;
+        border-radius: 10px;
+        font-size: 12pt;
+
+        &:hover {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            scale: 1.15;
+        }
+
+        .title {
+            font-size: 14pt;
+            font-weight: 800;
+            padding: 0.5em;
+            background-color: $prb-color-base-title-background;
+            border-radius: 5px;
+
+            &:before {
+                margin-right: 0.3em;
+                font-size: 1.2em;
+                color: inherit;
+                border-radius: 50%;
+                background-color: inherit;
+                filter: brightness(2);
+                height: 1.5em;
+                width: 1.5em;
+                display: inline-block;
+                vertical-align: middle;
+                text-align: center;
+            }
+        }
+
+        &.alert {
+            @include card-style($prb-color-blue, $prb-color-card-text, $prb-color-blue, $prb-color-white);
+
+            &-success {
+                @include card-style($prb-color-green, $prb-color-card-text, $prb-color-green, $prb-color-black);
+                @include card-title-before("✔");
+            }
+
+            &-error {
+                @include card-style($prb-color-red, $prb-color-card-text, $prb-color-red, $prb-color-black);
+                @include card-title-before("✖");
+            }
+
+            &-warning {
+                @include card-style($prb-color-yellow, $prb-color-card-text, $prb-color-yellow, $prb-color-black);
+                @include card-title-before("⚠");
+            }
+
+            &-info {
+                @include card-style($prb-color-light-blue, $prb-color-card-text, $prb-color-light-blue, $prb-color-black);
+                @include card-title-before("ℹ");
+            }
+        }
+
+        .content {
+            letter-spacing: 1px;
+            padding: 1em;
+
+            p {
+                margin: 0;
+                line-height: 1.2;
+            }
+        }
+    }
+}
